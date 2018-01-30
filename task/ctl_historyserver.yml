@@ -1,0 +1,5 @@
+---
+# Restart history server service
+- name: Restarting history server service
+  action: service name=hadoop-mapreduce-historyserver state="{{ ctl_action }}"
+  only_if: '$is_historyserver'

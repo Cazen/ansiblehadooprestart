@@ -1,0 +1,17 @@
+---
+# Restart all YARN & HDFS related JVM
+
+- hosts: pbdpce01
+  sudo: True
+  vars_files:
+  - vars/main.yml
+
+  tasks:
+  - include: stop-hdfs.yml
+  - include: stop-yarn.yml
+
+# Added pause to check that JVM is completely terminated. It can be replaced with task-dependancy logic(Recommended)
+  - pause: seconds=30
+
+  - include: start-hdfs.yml
+  - include: start-yarn.yml

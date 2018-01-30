@@ -1,0 +1,16 @@
+---
+# Stop HDFS related JVM
+# Stopping service with following order(Datanode -> SecondaryNamenode -> Namenode -> ZKFC -> JournalNode)
+# https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.2/bk_HDP_Reference_Guide/content/stopping_hdp_services.html
+
+- hosts: pbdpce01
+  sudo: True
+  vars_files:
+  - vars/main.yml
+
+  tasks:
+  - include: tasks/ctl-datanode.yml ctl_action=stopped
+  - include: tasks/ctl_secondarynamenode.yml ctl_action=stopped
+  - include: tasks/ctl_namenode.yml ctl_action=stopped
+  - include: tasks/ctl_zkfc.yml ctl_action=stopped
+  - include: tasks/ctl_journalnode.yml ctl_action=stopped

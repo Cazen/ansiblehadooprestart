@@ -1,0 +1,14 @@
+---
+# Start YARN related JVM
+# Starting service with following order(ResourceManager -> HistoryServer -> NodeManager)
+# https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.2/bk_HDP_Reference_Guide/content/starting_hdp_services.html
+
+- hosts: pbdpce01
+  sudo: True
+  vars_files:
+  - vars/main.yml
+
+  tasks:
+  - include: tasks/ctl_resourcemanager.yml ctl_action=started
+  - include: tasks/ctl_historyserver.yml ctl_action=started
+  - include: tasks/ctl_nodemanager.yml ctl_action=started

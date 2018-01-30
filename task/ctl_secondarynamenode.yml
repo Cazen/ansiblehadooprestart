@@ -1,0 +1,5 @@
+---
+# Restart secondary namenode service
+- name: Restarting secondary namenode service
+  action: service name=hadoop-hdfs-secondarynamenode state="{{ ctl_action }}"
+  only_if: '$is_secondarynamenode'

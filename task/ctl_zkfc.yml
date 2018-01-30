@@ -1,0 +1,5 @@
+---
+# Restart ZKFC service
+- name: Restarting ZKFC service
+  action: service name=hadoop-hdfs-zkfc state="{{ ctl_action }}"
+  only_if: '$is_zkfc'

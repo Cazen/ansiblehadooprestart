@@ -1,0 +1,5 @@
+---
+# Restart Journalnode service
+- name: Restarting journalnode service
+  action: service name=hadoop-hdfs-journalnode state="{{ ctl_action }}"
+  only_if: '$is_journalnode'

@@ -1,0 +1,5 @@
+---
+# Restart node manager service
+- name: Restarting history server service
+  action: service name=hadoop-yarn-nodemanager state="{{ ctl_action }}"
+  only_if: '$is_worker'

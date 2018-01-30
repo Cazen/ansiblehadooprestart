@@ -1,0 +1,5 @@
+---
+# Restart datanode service
+- name: Restarting datanode service
+  action: service name=hadoop-hdfs-datanode state="{{ ctl_action }}"
+  only_if: '$is_worker'

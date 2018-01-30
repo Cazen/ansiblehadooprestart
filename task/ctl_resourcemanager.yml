@@ -1,0 +1,5 @@
+---
+# Restart resource manager service
+- name: Restarting resource manager service
+  action: service name=hadoop-yarn-resourcemanager state="{{ ctl_action }}"
+  only_if: '$is_resourcemanager'

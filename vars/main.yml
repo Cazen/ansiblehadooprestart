@@ -1,0 +1,8 @@
+---
+is_namenode: "'-hadoop-nn' in group_names"
+is_secondarynamenode: "'-hadoop-nn' in group_names"
+is_resource_manager: "'-hadoop-rm' in group_names"
+is_history_server: "'-hadoop-mrhistory' in group_names"
+is_worker: "'-hadoop-worker' in group_names"
+is_journalnode: "'-hadoop-jn' in group_names"
+is_zkfc: "'-hadoop-zkfc' in group_names"
